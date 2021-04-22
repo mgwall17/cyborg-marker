@@ -1,0 +1,36 @@
+import Image from 'next/image'
+import { Grid, Box, Container,Typography } from "@material-ui/core"
+
+[//]: # (This block is currently being used for DATA CYCLE.)
+
+<Grid 
+container
+direction="row"
+justify="center"
+alignItems="center"
+spacing={4}
+>
+<Grid item md={4}>
+      <Image
+      src="/images/data-cycle-cyverse.png"
+      alt="CyVerse Data Cycle"
+      layout="intrinsic"
+      height={300}
+      width={350}
+      />
+</Grid>
+<Grid item md={8}>
+<Typography variant="h5" color="primary">
+
+## Demand More from your Data
+
+</Typography>
+<Typography variant="body1" color="textPrimary">
+
+Explore how our services support each step of your research, whether it’s bulk uploading of raw files, analyzing and visualizing your results, sharing with collaborators, or assigning permanent identifiers so others can find and reuse your data and analyses.
+
+Use CyVerse to easily manage all your data and research in one place. CyVerse staff can help you along the way. Create an account today.
+
+</Typography>
+</Grid>
+</Grid>

@@ -1,0 +1,60 @@
+import {
+  Typography,
+  Box,
+  Grid,
+  Paper,
+  Divider,
+  Button,
+} from "@material-ui/core";
+import Image from "next/image";
+import WelcomeBanner from "../components/welcomeBanner";
+import SingleColumnFeature from "../HomeBlocks/SingleColumnFeature.mdx";
+import NewsList from "../HomeBlocks/NewsList.js"
+
+<WelcomeBanner />
+
+<Box mb={5}>
+<Grid 
+container direction="row" 
+spacing={6}  
+align="center"
+>
+<Grid item md={4} lg={4}>
+
+# Analyze and Share
+
+<Typography variant="body1" color="textPrimary">
+
+Do all your research in one place with our easy to use bioinformatics tools, image analyses, cloud services, and resources for reproducibility, automation, storing, and sharing.
+
+</Typography>
+</Grid>
+<Grid item md={4} lg={4}>
+
+
+# Build Your Skills
+
+<Typography variant="body1" color="textPrimary">
+
+Access our educational workspaces, webinars, hands-on workshops, self-paced tutorials, and more to teach yourself and your students how to do open, collaborative science.
+
+</Typography>
+
+</Grid>
+<Grid item md={4} lg={4}>
+
+# Bring Your Own
+
+<Typography variant="body1" color="textPrimary">
+
+Access our educational workspaces, webinars, hands-on workshops, self-paced tutorials, and more to teach yourself and your students how to do open, collaborative science.
+
+</Typography>
+
+</Grid>
+</Grid>
+</Box>
+
+<SingleColumnFeature />
+
+<NewsList />
