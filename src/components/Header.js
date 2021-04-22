@@ -1,5 +1,7 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button"
+import Menu from "@material-ui/core/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -69,6 +71,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Nav() {
   const classes = useStyles();
+    
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+
+    const handleCloseAbout = () => {
+      setAnchorEl(null);
+    };
+  
+   const handleCloseLearn = () => {
+     setAnchorEl(null);
+   };
+  const handleCloseProduct = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div className={classes.root}>
@@ -98,6 +117,66 @@ export default function Nav() {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
+          <Button
+            aria-controls="about-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            About
+          </Button>
+          <Menu
+            id="about-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleCloseAbout}
+          >
+            <MenuItem onClick={handleCloseAbout}>Project</MenuItem>
+            <MenuItem onClick={handleCloseAbout}>Collaborators</MenuItem>
+            <MenuItem onClick={handleCloseAbout}>Personel</MenuItem>
+          </Menu>
+          <Button
+            aria-controls="lear-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            Learning
+          </Button>
+          <Menu
+            id="learn-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleCloseLearn}
+          >
+            <MenuItem onClick={handleCloseLearn}>Learning Center</MenuItem>
+            <MenuItem onClick={handleCloseLearn}>Container Camp</MenuItem>
+            <MenuItem onClick={handleCloseLearn}>FOSS</MenuItem>
+            <MenuItem onClick={handleCloseLearn}>Webinars</MenuItem>
+          </Menu>
+          <Button
+            aria-controls="product-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            Products
+          </Button>
+          <Menu
+            id="product-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleCloseProduct}
+          >
+            <MenuItem onClick={handleCloseProduct}>View All</MenuItem>
+            <MenuItem onClick={handleCloseProduct}>Atmosphere</MenuItem>
+            <MenuItem onClick={handleCloseProduct}>
+              Discovery Environment
+            </MenuItem>
+            <MenuItem onClick={handleCloseProduct}>
+              BisQue Image Analysis
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
     </div>
