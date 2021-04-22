@@ -136,7 +136,7 @@ export default function Nav() {
             <MenuItem onClick={handleCloseAbout}>Personel</MenuItem>
           </Menu>
           <Button
-            aria-controls="lear-menu"
+            aria-controls="learn-menu"
             aria-haspopup="true"
             onClick={handleClick}
           >
