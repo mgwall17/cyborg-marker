@@ -2,9 +2,8 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import Link from 'next/link'
 
-export default function PlatformMenu() {
+export default function CollaborateMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -23,7 +22,7 @@ export default function PlatformMenu() {
         onClick={handleClick}
         color="primary"
       >
-        About
+        Collaborate
       </Button>
       <Menu
         id="simple-menu"
@@ -32,11 +31,14 @@ export default function PlatformMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <Link href="/about">
-          <MenuItem onClick={handleClose}>The Project</MenuItem>
-        </Link>
-        <MenuItem onClick={handleClose}>News</MenuItem>
-        <MenuItem onClick={handleClose}>Events</MenuItem>
+        <MenuItem onClick={handleClose}>Powered by CyVerse</MenuItem>
+        <MenuItem onClick={handleClose}>
+          External Collaborative Partnerships
+        </MenuItem>
+        <MenuItem onClick={handleClose}>Proposal Resources</MenuItem>
+        <MenuItem onClick={handleClose}>CyVerse @ UArizona</MenuItem>
+        <MenuItem onClick={handleClose}>CyVerse UK</MenuItem>
+        <MenuItem onClick={handleClose}>CyVerse AU</MenuItem>
       </Menu>
     </div>
   );

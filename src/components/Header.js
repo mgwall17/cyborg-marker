@@ -1,7 +1,9 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button"
-import Menu from "@material-ui/core/Menu";
+import AboutMenu from '../components/dropdown/AboutMenu'
+import PlatformMenu from "../components/dropdown/PlatformMenu";
+import LearningMenu from "../components/dropdown/LearningMenu";
+import CollaborateMenu from "../components/dropdown/CollaborateMenu";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -9,6 +11,7 @@ import InputBase from "@material-ui/core/InputBase";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
+import Button from "@material-ui/core/Button"
 import CyverseLogo from "../../public/icons/CyverseLogo"
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
   },
   title: {
     flexGrow: 1,
@@ -72,23 +78,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Nav() {
   const classes = useStyles();
     
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-
-    const handleCloseAbout = () => {
-      setAnchorEl(null);
-    };
-  
-   const handleCloseLearn = () => {
-     setAnchorEl(null);
-   };
-  const handleCloseProduct = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.Navigation} color="inherit">
@@ -117,66 +106,16 @@ export default function Nav() {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
-          <Button
-            aria-controls="about-menu"
-            aria-haspopup="true"
-            onClick={handleClick}
-          >
-            About
-          </Button>
-          <Menu
-            id="about-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleCloseAbout}
-          >
-            <MenuItem onClick={handleCloseAbout}>Project</MenuItem>
-            <MenuItem onClick={handleCloseAbout}>Collaborators</MenuItem>
-            <MenuItem onClick={handleCloseAbout}>Personel</MenuItem>
-          </Menu>
-          <Button
-            aria-controls="learn-menu"
-            aria-haspopup="true"
-            onClick={handleClick}
-          >
-            Learning
-          </Button>
-          <Menu
-            id="learn-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleCloseLearn}
-          >
-            <MenuItem onClick={handleCloseLearn}>Learning Center</MenuItem>
-            <MenuItem onClick={handleCloseLearn}>Container Camp</MenuItem>
-            <MenuItem onClick={handleCloseLearn}>FOSS</MenuItem>
-            <MenuItem onClick={handleCloseLearn}>Webinars</MenuItem>
-          </Menu>
-          <Button
-            aria-controls="product-menu"
-            aria-haspopup="true"
-            onClick={handleClick}
-          >
-            Products
-          </Button>
-          <Menu
-            id="product-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleCloseProduct}
-          >
-            <MenuItem onClick={handleCloseProduct}>View All</MenuItem>
-            <MenuItem onClick={handleCloseProduct}>Atmosphere</MenuItem>
-            <MenuItem onClick={handleCloseProduct}>
-              Discovery Environment
-            </MenuItem>
-            <MenuItem onClick={handleCloseProduct}>
-              BisQue Image Analysis
-            </MenuItem>
-          </Menu>
+          <PlatformMenu />
+          <LearningMenu />
+          <AboutMenu />
+          <CollaborateMenu />
+          <MenuItem>
+            <Button color="primary">Log In</Button>
+          </MenuItem>
+          <MenuItem>
+            <Button color="primary">Sign Up</Button>
+          </MenuItem>
         </Toolbar>
       </AppBar>
     </div>

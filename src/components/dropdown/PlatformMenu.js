@@ -2,7 +2,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import Link from 'next/link'
 
 export default function PlatformMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,7 +22,7 @@ export default function PlatformMenu() {
         onClick={handleClick}
         color="primary"
       >
-        About
+        Platforms
       </Button>
       <Menu
         id="simple-menu"
@@ -32,11 +31,9 @@ export default function PlatformMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <Link href="/about">
-          <MenuItem onClick={handleClose}>The Project</MenuItem>
-        </Link>
-        <MenuItem onClick={handleClose}>News</MenuItem>
-        <MenuItem onClick={handleClose}>Events</MenuItem>
+        <MenuItem onClick={handleClose}>Data Store</MenuItem>
+        <MenuItem onClick={handleClose}>Discovery Environment</MenuItem>
+        <MenuItem onClick={handleClose}>DNA Subway</MenuItem>
       </Menu>
     </div>
   );

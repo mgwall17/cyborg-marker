@@ -2,8 +2,9 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import Link from "next/link";
 
-export default function ServiceMenu() {
+export default function LearningMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -15,13 +16,14 @@ export default function ServiceMenu() {
   };
 
   return (
-    <div>
+    <div style={{ marginRight: "2%" }}>
       <Button
+        color="primary"
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleClick}
       >
-        Services
+        Learning
       </Button>
       <Menu
         id="simple-menu"
@@ -30,9 +32,12 @@ export default function ServiceMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Data Store</MenuItem>
-        <MenuItem onClick={handleClose}>Discovery Environment</MenuItem>
-        <MenuItem onClick={handleClose}>DNA Subway</MenuItem>
+        <Link href="/about">
+          <MenuItem onClick={handleClose}>Learning Center</MenuItem>
+        </Link>
+        <MenuItem onClick={handleClose}>Container Camp</MenuItem>
+        <MenuItem onClick={handleClose}>FOSS Online</MenuItem>
+        <MenuItem onClick={handleClose}>Webinars</MenuItem>
       </Menu>
     </div>
   );
