@@ -1,10 +1,7 @@
 This is markdown nextjs version of cyverse.org
 
+``npm install
 ``
-npm install
 
-``
-``
-npm run dev
-
+``npm run dev
 ``
